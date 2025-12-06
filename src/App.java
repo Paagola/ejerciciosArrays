@@ -160,6 +160,17 @@ public class App {
                     arrays.imprimirArrayInt(num10);
                 break;
 
+                case 11: //EJERICIO 11
+                    int[] num11 = arrays.crearArrayRandom(10, 0, 350);
+
+                    arrays.imprimirTabla(num11);
+
+                    arrays.arraysConPrimos(num11);
+
+                    arrays.imprimirTabla(num11);
+
+                break;  
+
                 default:
                     break;
             }
