@@ -5,13 +5,13 @@ public class App {
         System.out.println("""
                             EJERCICIOS ARRAYS
                 ==========================================
-                EJERCICIO 1 | EJERCICIO 8  |
-                EJERCICIO 2 | EJERCICIO 9  |
+                EJERCICIO 1 | EJERCICIO 8  | EJERCICIO 15 |
+                EJERCICIO 2 | EJERCICIO 9  | EJERCICIO 16 |
                 EJERCICIO 3 | EJERCICIO 10 |
                 EJERCICIO 4 | EJERCICIO 11 |
                 EJERCICIO 5 | EJERCICIO 12 |
-                EJERCICIO 6 |
-                EJERCICIO 7 |
+                EJERCICIO 6 | EJERCICIO 13 |
+                EJERCICIO 7 | EJERCICIO 14 |
                 """);
 
         int eleccion = Integer.parseInt(System.console().readLine("Introduce el número del ejercicio: "));
@@ -202,6 +202,7 @@ public class App {
                 }
 
                 arrays.imprimirTabla(num12);
+                break;
 
             case 13: // EJERCICIO 13
                 int[] num13 = arrays.crearArrayRandom(100, 0, 500);
@@ -291,6 +292,32 @@ public class App {
 
                     }
                 } while (nuevos >= 0);
+
+            case 16: // EJERCICIO 16
+
+                int[] num16 = arrays.crearArrayRandom(10, 0, 100);
+                arrays.imprimirTabla(num16);
+
+                int posicion = 0;
+                boolean num_en_array = true;
+                do{
+                    int elecc = Integer.parseInt(System.console().readLine("Introduzca unos de los números del array: "));
+                    for (int i = 0; i < num16.length; i++){
+                        if(num16[i] == elecc){
+                            num_en_array = false;
+                            posicion = num16[i];
+                        }
+                    } if (num_en_array)
+                        System.out.println("Ese número no está en el array.");
+                }while(num_en_array);
+
+                for (int i = 0; i < (posicion-num16.length-2);i++){
+                    num16 = arrays.moverDerecha(num16);
+                }
+
+                arrays.imprimirTabla(num16);
+
+
 
             default:
                 break;
