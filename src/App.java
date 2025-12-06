@@ -5,11 +5,11 @@ public class App {
         System.out.println("""
                             EJERCICIOS ARRAYS
                 ==========================================
-                EJERCICIO 1 | EJERCICIO 8 |
-                EJERCICIO 2 | EJERCICIO 9 |
-                EJERCICIO 3 | 
-                EJERCICIO 4 |
-                EJERCICIO 5 | 
+                EJERCICIO 1 | EJERCICIO 8  |
+                EJERCICIO 2 | EJERCICIO 9  |
+                EJERCICIO 3 | EJERCICIO 10 |
+                EJERCICIO 4 | EJERCICIO 11 |
+                EJERCICIO 5 | EJERCICIO 12 |
                 EJERCICIO 6 | 
                 EJERCICIO 7 | 
                 """);
@@ -169,7 +169,95 @@ public class App {
 
                     arrays.imprimirTabla(num11);
 
-                break;  
+                break;
+
+                case 12: //EJERCICIO 12
+                    int[] num12 = arrays.crearArrayRandom(10, 0, 50);
+                    arrays.imprimirTabla(num12);
+
+                    int posicion1 = Integer.parseInt(System.console().readLine("Introduzca la posición inicial (0-9): "));
+                    int posicion2 = Integer.parseInt(System.console().readLine("Introduzca la posición final (0-9): "));
+
+                    int aux2 = 0;
+                    aux = num12[num12.length-1];
+                    for (int i = 0; i < num12.length; i++){
+                        
+                        if (posicion1 > i){
+                            aux2 = num12[i];
+                            num12[i] = aux;
+                            aux = aux2;
+                        } else if (posicion1 == i){
+                            aux2 = num12[i];
+                            num12[i] = aux;
+                            aux = aux2;
+                        } else if (posicion2 <= i){
+                            aux2 = num12[i];
+                            num12[i] = aux;
+                            aux = aux2;
+                        }
+                    }
+
+                    arrays.imprimirTabla(num12);
+
+                case 13: //EJERCICIO 13
+                    int[] num13 = arrays.crearArrayRandom(100, 0, 500);
+                    arrays.imprimirArrayInt(num13);
+
+                    int min_max = Integer.parseInt(System.console().readLine("\n¿Que quiere destacar? (1-minimo, 2-máximo): "));
+                    
+                    
+                    switch(min_max){
+                        case 1: 
+                        for (int i = 0; i < num13.length; i++ ){
+                            if (num13[i] == arrays.menorArray(num13))
+                                System.out.print("**"+num13[i]+"** ");
+                            else
+                                System.out.print(num13[i]+" ");
+                        }
+                            break;
+
+                        case 2: 
+                            for (int i = 0; i < num13.length; i++ ){
+                            if (num13[i] == arrays.mayorArray(num13))
+                                System.out.print("**"+num13[i]+"** ");
+                            else
+                                System.out.print(num13[i]+" ");
+                        }
+                            break;
+
+                        default: System.out.println("Elección no perimitada, lo sentimos.");
+                        break;
+
+                    }
+                break;
+
+                case 14: //EJERCICIO 14
+                    String[] palabras14 = new String[8];
+
+                    for (int i = 0; i < palabras14.length; i++){
+                        palabras14[i] = System.console().readLine("-> ");
+                    }
+
+                    System.out.println("Array Original: ");
+                    arrays.imprimirTablaString(palabras14);
+                    
+                    String auxStr = "";
+                    correcto = true;
+                    while(correcto){
+                         correcto = false;
+                        for (int i = 1; i < palabras14.length; i++){
+                        if (arrays.esColor(palabras14[i]) && !arrays.esColor(palabras14[i-1])){
+                            auxStr = palabras14[i-1];
+                            palabras14[i-1] = palabras14[i];
+                            palabras14[i] = auxStr;
+                            correcto = true;
+                        }
+                    }
+                    }
+                    
+                    arrays.imprimirTablaString(palabras14);
+                    break;
+
 
                 default:
                     break;
