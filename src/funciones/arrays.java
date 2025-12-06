@@ -309,4 +309,13 @@ public class arrays {
             default: return false;
         }
     }
+
+    public static int mesaIndicada(int[] array, int comensales){
+        for (int i = 0; i < array.length; i++){
+            if (array[i] + comensales <= 4){
+                return i;
+            }
+        }
+        return -1;
+    }
 }
